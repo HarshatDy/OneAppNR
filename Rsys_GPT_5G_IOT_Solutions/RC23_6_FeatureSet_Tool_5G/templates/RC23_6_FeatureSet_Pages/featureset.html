@@ -1,0 +1,1029 @@
+
+{% extends "All_Tools_Pages/headerfooter.html" %}
+
+
+{% block content %}
+
+{% load static %}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+  <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+      <meta name="generator" content="PhpSpreadsheet, https://github.com/PHPOffice/PhpSpreadsheet">
+      <meta name="author" content="Shantnu Kumar Singh" />
+    <style type="text/css">
+      html { font-family:Calibri, Arial, Helvetica, sans-serif; font-size:11pt; background-color:white }
+      a.comment-indicator:hover + div.comment { background:#ffd; position:absolute; display:block; border:1px solid black; padding:0.5em }
+      a.comment-indicator { background:red; display:inline-block; border:1px solid black; width:0.5em; height:0.5em }
+      div.comment { display:none }
+      table { border-collapse:collapse; page-break-after:always }
+      .gridlines td { border:1px dotted black }
+      .gridlines th { border:1px dotted black }
+      .b { text-align:center }
+      .e { text-align:center }
+      .f { text-align:right }
+      .inlineStr { text-align:left }
+      .n { text-align:right }
+      .s { text-align:left }
+      td.style0 { vertical-align:bottom; border-bottom:none #000000; border-top:none #000000; border-left:none #000000; border-right:none #000000; color:#000000; font-family:'Calibri'; font-size:11pt; background-color:white }
+      th.style0 { vertical-align:bottom; border-bottom:none #000000; border-top:none #000000; border-left:none #000000; border-right:none #000000; color:#000000; font-family:'Calibri'; font-size:11pt; background-color:white }
+      td.style1 { vertical-align:bottom; border-bottom:1px solid #000000 !important; border-top:1px solid #000000 !important; border-left:1px solid #000000 !important; border-right:1px solid #000000 !important; color:#000000; font-family:'Calibri'; font-size:11pt; background-color:white }
+      th.style1 { vertical-align:bottom; border-bottom:1px solid #000000 !important; border-top:1px solid #000000 !important; border-left:1px solid #000000 !important; border-right:1px solid #000000 !important; color:#000000; font-family:'Calibri'; font-size:11pt; background-color:white }
+      td.style2 { vertical-align:bottom; border-bottom:1px solid #000000 !important; border-top:1px solid #000000 !important; border-left:1px solid #000000 !important; border-right:1px solid #000000 !important; color:#000000; font-family:'Calibri'; font-size:11pt; background-color:white }
+      th.style2 { vertical-align:bottom; border-bottom:1px solid #000000 !important; border-top:1px solid #000000 !important; border-left:1px solid #000000 !important; border-right:1px solid #000000 !important; color:#000000; font-family:'Calibri'; font-size:11pt; background-color:white }
+      td.style3 { vertical-align:bottom; border-bottom:1px solid #000000 !important; border-top:1px solid #000000 !important; border-left:1px solid #000000 !important; border-right:1px solid #000000 !important; font-weight:bold; color:#000000; font-family:'Calibri'; font-size:11pt; background-color:white }
+      th.style3 { vertical-align:bottom; border-bottom:1px solid #000000 !important; border-top:1px solid #000000 !important; border-left:1px solid #000000 !important; border-right:1px solid #000000 !important; font-weight:bold; color:#000000; font-family:'Calibri'; font-size:11pt; background-color:white }
+      td.style4 { vertical-align:bottom; border-bottom:1px solid #000000 !important; border-top:1px solid #000000 !important; border-left:1px solid #000000 !important; border-right:1px solid #000000 !important; font-weight:bold; color:#000000; font-family:'Calibri'; font-size:11pt; background-color:white }
+      th.style4 { vertical-align:bottom; border-bottom:1px solid #000000 !important; border-top:1px solid #000000 !important; border-left:1px solid #000000 !important; border-right:1px solid #000000 !important; font-weight:bold; color:#000000; font-family:'Calibri'; font-size:11pt; background-color:white }
+      td.style5 { vertical-align:bottom; text-align:left; padding-left:0px; border-bottom:1px solid #000000 !important; border-top:1px solid #000000 !important; border-left:1px solid #000000 !important; border-right:1px solid #000000 !important; color:#000000; font-family:'Calibri'; font-size:11pt; background-color:white }
+      th.style5 { vertical-align:bottom; text-align:left; padding-left:0px; border-bottom:1px solid #000000 !important; border-top:1px solid #000000 !important; border-left:1px solid #000000 !important; border-right:1px solid #000000 !important; color:#000000; font-family:'Calibri'; font-size:11pt; background-color:white }
+      td.style6 { vertical-align:bottom; text-align:left; padding-left:0px; border-bottom:1px solid #000000 !important; border-top:1px solid #000000 !important; border-left:1px solid #000000 !important; border-right:1px solid #000000 !important; color:#000000; font-family:'Calibri'; font-size:11pt; background-color:white }
+      th.style6 { vertical-align:bottom; text-align:left; padding-left:0px; border-bottom:1px solid #000000 !important; border-top:1px solid #000000 !important; border-left:1px solid #000000 !important; border-right:1px solid #000000 !important; color:#000000; font-family:'Calibri'; font-size:11pt; background-color:white }
+      td.style7 { vertical-align:bottom; border-bottom:1px solid #000000 !important; border-top:1px solid #000000 !important; border-left:1px solid #000000 !important; border-right:1px solid #000000 !important; color:#000000; font-family:'Calibri'; font-size:11pt; background-color:white }
+      th.style7 { vertical-align:bottom; border-bottom:1px solid #000000 !important; border-top:1px solid #000000 !important; border-left:1px solid #000000 !important; border-right:1px solid #000000 !important; color:#000000; font-family:'Calibri'; font-size:11pt; background-color:white }
+      td.style8 { vertical-align:bottom; border-bottom:1px solid #000000 !important; border-top:1px solid #000000 !important; border-left:1px solid #000000 !important; border-right:1px solid #000000 !important; color:#FF0000; font-family:'Calibri'; font-size:11pt; background-color:white }
+      th.style8 { vertical-align:bottom; border-bottom:1px solid #000000 !important; border-top:1px solid #000000 !important; border-left:1px solid #000000 !important; border-right:1px solid #000000 !important; color:#FF0000; font-family:'Calibri'; font-size:11pt; background-color:white }
+      td.style9 { vertical-align:bottom; border-bottom:1px solid #000000 !important; border-top:1px solid #000000 !important; border-left:1px solid #000000 !important; border-right:1px solid #000000 !important; color:#FF0000; font-family:'Calibri'; font-size:11pt; background-color:white }
+      th.style9 { vertical-align:bottom; border-bottom:1px solid #000000 !important; border-top:1px solid #000000 !important; border-left:1px solid #000000 !important; border-right:1px solid #000000 !important; color:#FF0000; font-family:'Calibri'; font-size:11pt; background-color:white }
+      td.style10 { vertical-align:bottom; border-bottom:1px solid #000000 !important; border-top:1px solid #000000 !important; border-left:1px solid #000000 !important; border-right:1px solid #000000 !important; color:#FF0000; font-family:'Calibri'; font-size:11pt; background-color:white }
+      th.style10 { vertical-align:bottom; border-bottom:1px solid #000000 !important; border-top:1px solid #000000 !important; border-left:1px solid #000000 !important; border-right:1px solid #000000 !important; color:#FF0000; font-family:'Calibri'; font-size:11pt; background-color:white }
+      td.style11 { vertical-align:bottom; border-bottom:1px solid #000000 !important; border-top:1px solid #000000 !important; border-left:1px solid #000000 !important; border-right:1px solid #000000 !important; color:#00B050; font-family:'Calibri'; font-size:11pt; background-color:white }
+      th.style11 { vertical-align:bottom; border-bottom:1px solid #000000 !important; border-top:1px solid #000000 !important; border-left:1px solid #000000 !important; border-right:1px solid #000000 !important; color:#00B050; font-family:'Calibri'; font-size:11pt; background-color:white }
+      td.style12 { vertical-align:bottom; border-bottom:1px solid #000000 !important; border-top:1px solid #000000 !important; border-left:1px solid #000000 !important; border-right:1px solid #000000 !important; font-weight:bold; color:#00B050; font-family:'Calibri'; font-size:11pt; background-color:white }
+      th.style12 { vertical-align:bottom; border-bottom:1px solid #000000 !important; border-top:1px solid #000000 !important; border-left:1px solid #000000 !important; border-right:1px solid #000000 !important; font-weight:bold; color:#00B050; font-family:'Calibri'; font-size:11pt; background-color:white }
+      td.style13 { vertical-align:bottom; border-bottom:none #000000; border-top:none #000000; border-left:none #000000; border-right:none #000000; color:#00B050; font-family:'Calibri'; font-size:11pt; background-color:white }
+      th.style13 { vertical-align:bottom; border-bottom:none #000000; border-top:none #000000; border-left:none #000000; border-right:none #000000; color:#00B050; font-family:'Calibri'; font-size:11pt; background-color:white }
+      td.style14 { vertical-align:bottom; border-bottom:none #000000; border-top:none #000000; border-left:none #000000; border-right:none #000000; color:#00B050; font-family:'Calibri'; font-size:11pt; background-color:white }
+      th.style14 { vertical-align:bottom; border-bottom:none #000000; border-top:none #000000; border-left:none #000000; border-right:none #000000; color:#00B050; font-family:'Calibri'; font-size:11pt; background-color:white }
+      td.style15 { vertical-align:bottom; border-bottom:none #000000; border-top:none #000000; border-left:none #000000; border-right:none #000000; color:#000000; font-family:'Calibri'; font-size:11pt; background-color:white }
+      th.style15 { vertical-align:bottom; border-bottom:none #000000; border-top:none #000000; border-left:none #000000; border-right:none #000000; color:#000000; font-family:'Calibri'; font-size:11pt; background-color:white }
+      td.style16 { vertical-align:bottom; border-bottom:none #000000; border-top:none #000000; border-left:none #000000; border-right:none #000000; color:#000000; font-family:'Calibri'; font-size:11pt; background-color:white }
+      th.style16 { vertical-align:bottom; border-bottom:none #000000; border-top:none #000000; border-left:none #000000; border-right:none #000000; color:#000000; font-family:'Calibri'; font-size:11pt; background-color:white }
+      td.style17 { vertical-align:bottom; text-align:left; padding-left:0px; border-bottom:none #000000; border-top:none #000000; border-left:none #000000; border-right:none #000000; color:#000000; font-family:'Calibri'; font-size:11pt; background-color:white }
+      th.style17 { vertical-align:bottom; text-align:left; padding-left:0px; border-bottom:none #000000; border-top:none #000000; border-left:none #000000; border-right:none #000000; color:#000000; font-family:'Calibri'; font-size:11pt; background-color:white }
+      td.style18 { vertical-align:bottom; border-bottom:1px solid #000000 !important; border-top:1px solid #000000 !important; border-left:1px solid #000000 !important; border-right:1px solid #000000 !important; font-weight:bold; color:#000000; font-family:'Calibri'; font-size:11pt; background-color:#FFFF00 }
+      th.style18 { vertical-align:bottom; border-bottom:1px solid #000000 !important; border-top:1px solid #000000 !important; border-left:1px solid #000000 !important; border-right:1px solid #000000 !important; font-weight:bold; color:#000000; font-family:'Calibri'; font-size:11pt; background-color:#FFFF00 }
+      td.style19 { vertical-align:bottom; border-bottom:1px solid #000000 !important; border-top:1px solid #000000 !important; border-left:1px solid #000000 !important; border-right:1px solid #000000 !important; font-weight:bold; color:#000000; font-family:'Calibri'; font-size:11pt; background-color:#FFFF00 }
+      th.style19 { vertical-align:bottom; border-bottom:1px solid #000000 !important; border-top:1px solid #000000 !important; border-left:1px solid #000000 !important; border-right:1px solid #000000 !important; font-weight:bold; color:#000000; font-family:'Calibri'; font-size:11pt; background-color:#FFFF00 }
+      table.sheet0 col.col0 { width:116.57777644pt }
+      table.sheet0 col.col1 { width:189.7777756pt }
+      table.sheet0 col.col2 { width:215.53333086pt }
+      table.sheet0 tr { height:15pt }
+      table.sheet0 tr.row3 { height:28.8pt }
+      table.sheet0 tr.row5 { height:57.6pt }
+      table.sheet0 tr.row11 { height:28.8pt }
+      table.sheet0 tr.row45 { height:28.8pt }
+      table.sheet0 tr.row46 { height:28.8pt }
+      table.sheet0 tr.row52 { height:28.8pt }
+      table.sheet0 tr.row53 { height:28.8pt }
+      table.sheet0 tr.row61 { height:28.8pt }
+      table.sheet0 tr.row62 { height:28.8pt }
+      table.sheet0 tr.row124 { height:28.8pt }
+      table.sheet0 tr.row147 { height:28.8pt }
+      table.sheet0 tr.row148 { height:28.8pt }
+      table.sheet0 tr.row149 { height:28.8pt }
+      table.sheet0 tr.row170 { height:28.8pt }
+      table.sheet0 tr.row171 { height:28.8pt }
+    </style>
+  </head>
+
+  <body>
+<style>
+@page { margin-left: 0.7in; margin-right: 0.7in; margin-top: 0.75in; margin-bottom: 0.75in; }
+body { margin-left: 0.7in; margin-right: 0.7in; margin-top: 0.75in; margin-bottom: 0.75in; }
+</style>
+    <table border="0" cellpadding="0" cellspacing="0" id="sheet0" class="sheet0 gridlines">
+        <col class="col0">
+        <col class="col1">
+        <col class="col2">
+        <tbody>
+          <tr class="row0">
+            <td class="column0 style18 s">Area/Sub-area</td>
+            <td class="column1 style19 s">Item/Feature</td>
+            <td class="column2 style18 s">Specifics</td>
+          </tr>
+          <tr class="row1">
+            <td class="column0 style1 null"></td>
+            <td class="column1 style2 s">NSA/SA</td>
+            <td class="column2 style1 s">SA</td>
+          </tr>
+          <tr class="row2">
+            <td class="column0 style1 null"></td>
+            <td class="column1 style2 s">Connectivity Type</td>
+            <td class="column2 style2 s">eMBB</td>
+          </tr>
+          <tr class="row3">
+            <td class="column0 style1 null"></td>
+            <td class="column1 style2 s">Bands</td>
+            <td class="column2 style2 s">TDD: n78, n79<br />
+FDD: n28</td>
+          </tr>
+          <tr class="row4">
+            <td class="column0 style1 null"></td>
+            <td class="column1 style2 s">Bandwidth</td>
+            <td class="column2 style1 s"><span style="color:#00B050; font-family:'Calibri'; font-size:11pt">20Mhz (TDD)</span><span style="color:#000000; font-family:'Calibri'; font-size:11pt"> ,100MHz (TDD), 10MHz(FDD)</span></td>
+          </tr>
+          <tr class="row5">
+            <td class="column0 style1 null"></td>
+            <td class="column1 style2 s">Cells or sectors</td>
+            <td class="column2 style5 s">Total 6 Cells<br />
+3 pairs of  two cells (1TDD and 1FDD).<br />
+Each pair: one TDD (100MHz) cell and one FDD (10MHz)</td>
+          </tr>
+          <tr class="row6">
+            <td class="column0 style1 null"></td>
+            <td class="column1 style2 s">Located</td>
+            <td class="column2 style6 s">Tower Bottom</td>
+          </tr>
+          <tr class="row7">
+            <td class="column0 style1 null"></td>
+            <td class="column1 style2 s">Subcarrier Spacing</td>
+            <td class="column2 style1 s">30KHz (TDD), 15KHz (FDD)</td>
+          </tr>
+          <tr class="row8">
+            <td class="column0 style1 null"></td>
+            <td class="column1 style2 s">Duplex</td>
+            <td class="column2 style1 s">TDD, FDD</td>
+          </tr>
+          <tr class="row9">
+            <td class="column0 style1 null"></td>
+            <td class="column1 style2 s">Access Scheme</td>
+            <td class="column2 style1 s">CP-OFDM, DFT-s-OFDM(UL Transform Precoding)</td>
+          </tr>
+          <tr class="row10">
+            <td class="column0 style1 null"></td>
+            <td class="column1 style2 s">Slot configuration</td>
+            <td class="column2 style2 s">DDDDDDDSUU, DDDSU, DDDSUUDDDD</td>
+          </tr>
+          <tr class="row11">
+            <td class="column0 style1 null"></td>
+            <td class="column1 style2 s">DL Carrier Aggregation</td>
+            <td class="column2 style2 s">Supported <br />
+(2CC only, for the paired FDD and TDD cell)</td>
+          </tr>
+          <tr class="row12">
+            <td class="column0 style1 null"></td>
+            <td class="column1 style2 s">UL Carrier Aggregation</td>
+            <td class="column2 style2 s">Not Supported</td>
+          </tr>
+          <tr class="row13">
+            <td class="column0 style1 null"></td>
+            <td class="column1 style2 s">Cross Carrier Scheduling </td>
+            <td class="column2 style1 s">Not Supported</td>
+          </tr>
+          <tr class="row14">
+            <td class="column0 style15 null"></td>
+            <td class="column1 style16 null"></td>
+            <td class="column2 style15 null"></td>
+          </tr>
+          <tr class="row15">
+            <td class="column0 style3 s">Mid-Haul</td>
+            <td class="column1 style2 null"></td>
+            <td class="column2 style1 null"></td>
+          </tr>
+          <tr class="row16">
+            <td class="column0 style1 null"></td>
+            <td class="column1 style2 s">Split Option</td>
+            <td class="column2 style1 s">Option 2</td>
+          </tr>
+          <tr class="row17">
+            <td class="column0 style1 null"></td>
+            <td class="column1 style2 s">DU:CU</td>
+            <td class="column2 style7 s">1:1</td>
+          </tr>
+          <tr class="row18">
+            <td class="column0 style1 null"></td>
+            <td class="column1 style2 s">DU:CU-CP</td>
+            <td class="column2 style7 s">1:1</td>
+          </tr>
+          <tr class="row19">
+            <td class="column0 style1 null"></td>
+            <td class="column1 style2 s">DU:CU-UP</td>
+            <td class="column2 style7 s">1:1</td>
+          </tr>
+          <tr class="row20">
+            <td class="column0 style1 null"></td>
+            <td class="column1 style2 null"></td>
+            <td class="column2 style1 null"></td>
+          </tr>
+          <tr class="row21">
+            <td class="column0 style3 s">Front-Haul</td>
+            <td class="column1 style2 null"></td>
+            <td class="column2 style1 null"></td>
+          </tr>
+          <tr class="row22">
+            <td class="column0 style1 null"></td>
+            <td class="column1 style2 s">Split Option</td>
+            <td class="column2 style1 s">Option 7.2a</td>
+          </tr>
+          <tr class="row23">
+            <td class="column0 style1 null"></td>
+            <td class="column1 style2 s">DU:RU</td>
+            <td class="column2 style7 s">1:N ( N=1..6)</td>
+          </tr>
+          <tr class="row24">
+            <td class="column0 style1 null"></td>
+            <td class="column1 style2 s">Cell:RU</td>
+            <td class="column2 style7 s">1:1</td>
+          </tr>
+          <tr class="row25">
+            <td class="column0 style1 null"></td>
+            <td class="column1 style4 s">Single VLAN</td>
+            <td class="column2 style1 null"></td>
+          </tr>
+          <tr class="row26">
+            <td class="column0 style3 s">M-plane</td>
+            <td class="column1 style2 null"></td>
+            <td class="column2 style1 null"></td>
+          </tr>
+          <tr class="row27">
+            <td class="column0 style1 null"></td>
+            <td class="column1 style2 s">Data Model</td>
+            <td class="column2 style1 s">Hierarchical</td>
+          </tr>
+          <tr class="row28">
+            <td class="column0 style1 null"></td>
+            <td class="column1 style2 s">SMO &lt;--&gt;O-DU</td>
+            <td class="column2 style1 s">Supported</td>
+          </tr>
+          <tr class="row29">
+            <td class="column0 style3 s">S-Plane</td>
+            <td class="column1 style2 null"></td>
+            <td class="column2 style1 null"></td>
+          </tr>
+          <tr class="row30">
+            <td class="column0 style1 null"></td>
+            <td class="column1 style2 s">LLS Profile</td>
+            <td class="column2 style1 s">C3 , C1</td>
+          </tr>
+          <tr class="row31">
+            <td class="column0 style1 null"></td>
+            <td class="column1 style2 s">PTP Profile</td>
+            <td class="column2 style6 s">8275.1, 8275.2</td>
+          </tr>
+          <tr class="row32">
+            <td class="column0 style1 null"></td>
+            <td class="column1 style2 null"></td>
+            <td class="column2 style6 null"></td>
+          </tr>
+          <tr class="row33">
+            <td class="column0 style1 null"></td>
+            <td class="column1 style2 null"></td>
+            <td class="column2 style1 null"></td>
+          </tr>
+          <tr class="row34">
+            <td class="column0 style15 null"></td>
+            <td class="column1 style16 null"></td>
+            <td class="column2 style15 null"></td>
+          </tr>
+          <tr class="row35">
+            <td class="column0 style3 s">PBCH</td>
+            <td class="column1 style2 null"></td>
+            <td class="column2 style1 null"></td>
+          </tr>
+          <tr class="row36">
+            <td class="column0 style1 null"></td>
+            <td class="column1 style2 s">SSB</td>
+            <td class="column2 style1 s">30KHz, 15KHz</td>
+          </tr>
+          <tr class="row37">
+            <td class="column0 style3 s">PRACH</td>
+            <td class="column1 style2 null"></td>
+            <td class="column2 style1 null"></td>
+          </tr>
+          <tr class="row38">
+            <td class="column0 style1 null"></td>
+            <td class="column1 style2 s">Short Preamble Formats</td>
+            <td class="column2 style1 s">B4, C2</td>
+          </tr>
+          <tr class="row39">
+            <td class="column0 style1 null"></td>
+            <td class="column1 style8 s">Long Preamble Formats</td>
+            <td class="column2 style9 s">0</td>
+          </tr>
+          <tr class="row40">
+            <td class="column0 style3 s">PDCCH</td>
+            <td class="column1 style2 null"></td>
+            <td class="column2 style1 null"></td>
+          </tr>
+          <tr class="row41">
+            <td class="column0 style1 null"></td>
+            <td class="column1 style2 s">Formats</td>
+            <td class="column2 style1 s">0_0, 0_1, 1_0, 1_1</td>
+          </tr>
+          <tr class="row42">
+            <td class="column0 style1 null"></td>
+            <td class="column1 style2 s">Common Search Space</td>
+            <td class="column2 style1 s">Type0, Type0A</td>
+          </tr>
+          <tr class="row43">
+            <td class="column0 style1 null"></td>
+            <td class="column1 style2 s">Aggregation Level</td>
+            <td class="column2 style6 n">16</td>
+          </tr>
+          <tr class="row44">
+            <td class="column0 style3 s">PDSCH</td>
+            <td class="column1 style2 null"></td>
+            <td class="column2 style1 null"></td>
+          </tr>
+          <tr class="row45">
+            <td class="column0 style1 null"></td>
+            <td class="column1 style2 s">Resource Allocation <br />
+(Freq. Domain)</td>
+            <td class="column2 style1 s">Type 1</td>
+          </tr>
+          <tr class="row46">
+            <td class="column0 style1 null"></td>
+            <td class="column1 style2 s">Resource Allocation <br />
+(Time Domain)</td>
+            <td class="column2 style1 s">Type A</td>
+          </tr>
+          <tr class="row47">
+            <td class="column0 style3 s">PUCCH</td>
+            <td class="column1 style2 null"></td>
+            <td class="column2 style1 null"></td>
+          </tr>
+          <tr class="row48">
+            <td class="column0 style1 null"></td>
+            <td class="column1 style2 s">Short Formats</td>
+            <td class="column2 style1 s">0,2</td>
+          </tr>
+          <tr class="row49">
+            <td class="column0 style1 null"></td>
+            <td class="column1 style8 s">Long Formats</td>
+            <td class="column2 style10 s">1,3</td>
+          </tr>
+          <tr class="row50">
+            <td class="column0 style3 s">PUSCH</td>
+            <td class="column1 style2 null"></td>
+            <td class="column2 style1 null"></td>
+          </tr>
+          <tr class="row51">
+            <td class="column0 style3 null"></td>
+            <td class="column1 style8 s">Transform Precoding</td>
+            <td class="column2 style10 s">Supported</td>
+          </tr>
+          <tr class="row52">
+            <td class="column0 style1 null"></td>
+            <td class="column1 style2 s">Resource Allocation <br />
+(Freq. Domain)</td>
+            <td class="column2 style1 s">Type 1</td>
+          </tr>
+          <tr class="row53">
+            <td class="column0 style1 null"></td>
+            <td class="column1 style2 s">Resource Allocation <br />
+(Time Domain)</td>
+            <td class="column2 style1 s">Type A</td>
+          </tr>
+          <tr class="row54">
+            <td class="column0 style1 null"></td>
+            <td class="column1 style2 s">UCI over PUSCH</td>
+            <td class="column2 style1 s">Supported</td>
+          </tr>
+          <tr class="row55">
+            <td class="column0 style3 s">Modulation</td>
+            <td class="column1 style2 null"></td>
+            <td class="column2 style1 null"></td>
+          </tr>
+          <tr class="row56">
+            <td class="column0 style1 null"></td>
+            <td class="column1 style2 s">DL</td>
+            <td class="column2 style1 s">QPSK, 16QAM, 64QAM, 256QAM</td>
+          </tr>
+          <tr class="row57">
+            <td class="column0 style1 null"></td>
+            <td class="column1 style2 s">UL</td>
+            <td class="column2 style2 s">QPSK, 16QAM, 64QAM, 256QAM</td>
+          </tr>
+          <tr class="row58">
+            <td class="column0 style3 s">MIMO/Layers/Antennas</td>
+            <td class="column1 style2 null"></td>
+            <td class="column2 style1 null"></td>
+          </tr>
+          <tr class="row59">
+            <td class="column0 style1 null"></td>
+            <td class="column1 style2 s">DL </td>
+            <td class="column2 style1 s">SU-MIMO, 4 Layers </td>
+          </tr>
+          <tr class="row60">
+            <td class="column0 style1 null"></td>
+            <td class="column1 style2 s">UL</td>
+            <td class="column2 style1 s">SU-MIMO, 2 Layers</td>
+          </tr>
+          <tr class="row61">
+            <td class="column0 style1 null"></td>
+            <td class="column1 style2 s">Antennas</td>
+            <td class="column2 style2 s">TDD: 4T4R, 8T8R<br />
+FDD: 2T2R</td>
+          </tr>
+          <tr class="row62">
+            <td class="column0 style1 null"></td>
+            <td class="column1 style2 s">Beamforming</td>
+            <td class="column2 style2 s">Digital Beamforming <br />
+(Codebook based UL/DL Precoding) </td>
+          </tr>
+          <tr class="row63">
+            <td class="column0 style1 null"></td>
+            <td class="column1 style2 null"></td>
+            <td class="column2 style1 null"></td>
+          </tr>
+          <tr class="row64">
+            <td class="column0 style3 s">Reference Signals</td>
+            <td class="column1 style2 null"></td>
+            <td class="column2 style1 null"></td>
+          </tr>
+          <tr class="row65">
+            <td class="column0 style1 null"></td>
+            <td class="column1 style2 s">CSI-RS</td>
+            <td class="column2 style1 s">NZP, periodic, 8 port (Aperiodic for CA)</td>
+          </tr>
+          <tr class="row66">
+            <td class="column0 style1 null"></td>
+            <td class="column1 style2 s">CSI-IM</td>
+            <td class="column2 style1 s">Supported, Periodic</td>
+          </tr>
+          <tr class="row67">
+            <td class="column0 style1 null"></td>
+            <td class="column1 style2 s">DMRS</td>
+            <td class="column2 style1 s">Type 1</td>
+          </tr>
+          <tr class="row68">
+            <td class="column0 style1 null"></td>
+            <td class="column1 style2 s">SRS</td>
+            <td class="column2 style1 s">4 ports, periodic</td>
+          </tr>
+          <tr class="row69">
+            <td class="column0 style1 null"></td>
+            <td class="column1 style2 null"></td>
+            <td class="column2 style1 null"></td>
+          </tr>
+          <tr class="row70">
+            <td class="column0 style1 null"></td>
+            <td class="column1 style2 null"></td>
+            <td class="column2 style1 null"></td>
+          </tr>
+          <tr class="row71">
+            <td class="column0 style1 null"></td>
+            <td class="column1 style2 null"></td>
+            <td class="column2 style1 null"></td>
+          </tr>
+          <tr class="row72">
+            <td class="column0 style15 null"></td>
+            <td class="column1 style16 null"></td>
+            <td class="column2 style15 null"></td>
+          </tr>
+          <tr class="row73">
+            <td class="column0 style3 s">Mobility</td>
+            <td class="column1 style2 null"></td>
+            <td class="column2 style1 null"></td>
+          </tr>
+          <tr class="row74">
+            <td class="column0 style3 null"></td>
+            <td class="column1 style2 s">Inter DU</td>
+            <td class="column2 style1 s">Supported</td>
+          </tr>
+          <tr class="row75">
+            <td class="column0 style3 null"></td>
+            <td class="column1 style2 s">Intra DU Inter Cell</td>
+            <td class="column2 style1 s">Supported</td>
+          </tr>
+          <tr class="row76">
+            <td class="column0 style3 s">Power Saving</td>
+            <td class="column1 style2 null"></td>
+            <td class="column2 style1 null"></td>
+          </tr>
+          <tr class="row77">
+            <td class="column0 style1 null"></td>
+            <td class="column1 style2 s">DRX</td>
+            <td class="column2 style1 s">Supported</td>
+          </tr>
+          <tr class="row78">
+            <td class="column0 style1 null"></td>
+            <td class="column1 style2 s">Paging</td>
+            <td class="column2 style1 s">Supported</td>
+          </tr>
+          <tr class="row79">
+            <td class="column0 style1 null"></td>
+            <td class="column1 style2 s">UE Inactive Timer</td>
+            <td class="column2 style1 s">Supported</td>
+          </tr>
+          <tr class="row80">
+            <td class="column0 style3 s">Wireless Performance</td>
+            <td class="column1 style2 null"></td>
+            <td class="column2 style1 null"></td>
+          </tr>
+          <tr class="row81">
+            <td class="column0 style3 null"></td>
+            <td class="column1 style2 s">UL TA</td>
+            <td class="column2 style1 s">Supported</td>
+          </tr>
+          <tr class="row82">
+            <td class="column0 style3 null"></td>
+            <td class="column1 style2 s">DL LA</td>
+            <td class="column2 style1 s">Supported</td>
+          </tr>
+          <tr class="row83">
+            <td class="column0 style3 null"></td>
+            <td class="column1 style2 s">UL LA</td>
+            <td class="column2 style1 s">Supported</td>
+          </tr>
+          <tr class="row84">
+            <td class="column0 style3 null"></td>
+            <td class="column1 style2 s">OLPC</td>
+            <td class="column2 style1 s">Supported</td>
+          </tr>
+          <tr class="row85">
+            <td class="column0 style3 null"></td>
+            <td class="column1 style2 s">CLPC</td>
+            <td class="column2 style1 s">Supported</td>
+          </tr>
+          <tr class="row86">
+            <td class="column0 style3 s">L2 Features</td>
+            <td class="column1 style2 null"></td>
+            <td class="column2 style1 null"></td>
+          </tr>
+          <tr class="row87">
+            <td class="column0 style3 null"></td>
+            <td class="column1 style2 s">Bearer Types</td>
+            <td class="column2 style1 s">AM, UM</td>
+          </tr>
+          <tr class="row88">
+            <td class="column0 style3 null"></td>
+            <td class="column1 style2 s">Scheduler</td>
+            <td class="column2 style1 s">5QI, PFS</td>
+          </tr>
+          <tr class="row89">
+            <td class="column0 style3 null"></td>
+            <td class="column1 style2 s">Admission Control</td>
+            <td class="column2 style1 s">Supported</td>
+          </tr>
+          <tr class="row90">
+            <td class="column0 style3 null"></td>
+            <td class="column1 style2 s">F1-U Flow Control</td>
+            <td class="column2 style1 s">Supported</td>
+          </tr>
+          <tr class="row91">
+            <td class="column0 style3 null"></td>
+            <td class="column1 style2 s">HARQ Codebook</td>
+            <td class="column2 style1 s">Type 2</td>
+          </tr>
+          <tr class="row92">
+            <td class="column0 style3 null"></td>
+            <td class="column1 style2 s">VoNR</td>
+            <td class="column2 style1 s">Supported</td>
+          </tr>
+          <tr class="row93">
+            <td class="column0 style3 null"></td>
+            <td class="column1 style2 s">BWP</td>
+            <td class="column2 style1 s">one per UE</td>
+          </tr>
+          <tr class="row94">
+            <td class="column0 style3 null"></td>
+            <td class="column1 style2 s">Bearers/UE</td>
+            <td class="column2 style6 n">4</td>
+          </tr>
+          <tr class="row95">
+            <td class="column0 style3 null"></td>
+            <td class="column1 style2 s">DCA-DCD</td>
+            <td class="column2 style6 s">Supported</td>
+          </tr>
+          <tr class="row96">
+            <td class="column0 style3 null"></td>
+            <td class="column1 style11 s">OCNS</td>
+            <td class="column2 style6 s">Supported</td>
+          </tr>
+          <tr class="row97">
+            <td class="column0 style3 null"></td>
+            <td class="column1 style11 s">SRS TA</td>
+            <td class="column2 style6 s">Supported</td>
+          </tr>
+          <tr class="row98">
+            <td class="column0 style3 null"></td>
+            <td class="column1 style11 s">MBWP</td>
+            <td class="column2 style6 s">Supported</td>
+          </tr>
+          <tr class="row99">
+            <td class="column0 style3 s">L3 Features</td>
+            <td class="column1 style2 null"></td>
+            <td class="column2 style6 null"></td>
+          </tr>
+          <tr class="row100">
+            <td class="column0 style3 null"></td>
+            <td class="column1 style2 s">Software Crytpo</td>
+            <td class="column2 style6 null"></td>
+          </tr>
+          <tr class="row101">
+            <td class="column0 style3 null"></td>
+            <td class="column1 style2 s">DRB Ciphering </td>
+            <td class="column2 style6 s">NULL,<span style="color:#00B050; font-family:'Calibri'; font-size:11pt">SNOW_3G</span><span style="color:#000000; font-family:'Calibri'; font-size:11pt">, </span><span style="color:#00B050; font-family:'Calibri'; font-size:11pt">AES</span></td>
+          </tr>
+          <tr class="row102">
+            <td class="column0 style3 null"></td>
+            <td class="column1 style2 s">Encryption</td>
+            <td class="column2 style6 s">SNOW_3G, <span style="font-weight:bold; color:#00B050; font-family:'Calibri'; font-size:11pt">AES</span></td>
+          </tr>
+          <tr class="row103">
+            <td class="column0 style3 null"></td>
+            <td class="column1 style2 s">IRAT</td>
+            <td class="column2 style6 s">Supported</td>
+          </tr>
+          <tr class="row104">
+            <td class="column0 style3 null"></td>
+            <td class="column1 style2 s">EPS Fallback</td>
+            <td class="column2 style6 s">Supported</td>
+          </tr>
+          <tr class="row105">
+            <td class="column0 style3 null"></td>
+            <td class="column1 style2 s">LTE Re-direction</td>
+            <td class="column2 style6 s">Supported</td>
+          </tr>
+          <tr class="row106">
+            <td class="column0 style3 null"></td>
+            <td class="column1 style2 s">Mobility XnHo</td>
+            <td class="column2 style6 s">Supported</td>
+          </tr>
+          <tr class="row107">
+            <td class="column0 style3 null"></td>
+            <td class="column1 style2 s">Mobility NGHO</td>
+            <td class="column2 style6 s">Supported</td>
+          </tr>
+          <tr class="row108">
+            <td class="column0 style3 null"></td>
+            <td class="column1 style2 s">AMF Selection</td>
+            <td class="column2 style6 s">Supported</td>
+          </tr>
+          <tr class="row109">
+            <td class="column0 style3 null"></td>
+            <td class="column1 style2 s">CU Counters</td>
+            <td class="column2 style6 s">Supported</td>
+          </tr>
+          <tr class="row110">
+            <td class="column0 style3 null"></td>
+            <td class="column1 style11 s">Admission Control</td>
+            <td class="column2 style1 s">Supported</td>
+          </tr>
+          <tr class="row111">
+            <td class="column0 style3 null"></td>
+            <td class="column1 style11 s">NG Flex</td>
+            <td class="column2 style6 s">Supported</td>
+          </tr>
+          <tr class="row112">
+            <td class="column0 style3 null"></td>
+            <td class="column1 style11 s">Dynamic AMF Addition/Deletion</td>
+            <td class="column2 style6 s">Supported</td>
+          </tr>
+          <tr class="row113">
+            <td class="column0 style3 null"></td>
+            <td class="column1 style11 s">Dynamic NR &amp; EUTRA NBR Addition &amp; Deletion</td>
+            <td class="column2 style6 s">Supported</td>
+          </tr>
+          <tr class="row114">
+            <td class="column0 style3 null"></td>
+            <td class="column1 style11 s">HO based ANR for Intra-frequency &amp; EUTRA</td>
+            <td class="column2 style6 s">Supported</td>
+          </tr>
+          <tr class="row115">
+            <td class="column0 style3 null"></td>
+            <td class="column1 style11 s">Energy Saving</td>
+            <td class="column2 style6 s">Supported</td>
+          </tr>
+          <tr class="row116">
+            <td class="column0 style3 null"></td>
+            <td class="column1 style11 s">Dynamic CM (OCU)</td>
+            <td class="column2 style6 s">Supported</td>
+          </tr>
+          <tr class="row117">
+            <td class="column0 style3 null"></td>
+            <td class="column1 style11 s">Auto PCI Collisions Detection</td>
+            <td class="column2 style6 s">Supported</td>
+          </tr>
+          <tr class="row118">
+            <td class="column0 style3 s">L2&amp;L3 Features</td>
+            <td class="column1 style11 null"></td>
+            <td class="column2 style6 null"></td>
+          </tr>
+          <tr class="row119">
+            <td class="column0 style3 null"></td>
+            <td class="column1 style11 s">Inter-frequency Handover</td>
+            <td class="column2 style6 s">Supported</td>
+          </tr>
+          <tr class="row120">
+            <td class="column0 style3 null"></td>
+            <td class="column1 style2 s">RRC Reestablishment (RRE)</td>
+            <td class="column2 style6 s">Supported</td>
+          </tr>
+          <tr class="row121">
+            <td class="column0 style3 null"></td>
+            <td class="column1 style11 s">SIB-4</td>
+            <td class="column2 style6 s">Supported</td>
+          </tr>
+          <tr class="row122">
+            <td class="column0 style4 s">Failure handling/mitigation</td>
+            <td class="column1 style2 null"></td>
+            <td class="column2 style1 null"></td>
+          </tr>
+          <tr class="row123">
+            <td class="column0 style1 null"></td>
+            <td class="column1 style2 s">RLF detection/handling</td>
+            <td class="column2 style1 s">Supported</td>
+          </tr>
+          <tr class="row124">
+            <td class="column0 style1 null"></td>
+            <td class="column1 style2 s">L1 Assertion handling with<br />
+&nbsp;minimal cell level impact</td>
+            <td class="column2 style1 s">Supported</td>
+          </tr>
+          <tr class="row125">
+            <td class="column0 style1 null"></td>
+            <td class="column1 style2 null"></td>
+            <td class="column2 style1 null"></td>
+          </tr>
+          <tr class="row126">
+            <td class="column0 style1 null"></td>
+            <td class="column1 style2 null"></td>
+            <td class="column2 style1 null"></td>
+          </tr>
+          <tr class="row127">
+            <td class="column0 style15 null"></td>
+            <td class="column1 style16 null"></td>
+            <td class="column2 style15 null"></td>
+          </tr>
+          <tr class="row128">
+            <td class="column0 style1 null"></td>
+            <td class="column1 style2 s">BFP Compression</td>
+            <td class="column2 style1 s">No-compression, 8-bit, 9-bit</td>
+          </tr>
+          <tr class="row129">
+            <td class="column0 style1 null"></td>
+            <td class="column1 style2 s">Max Sections</td>
+            <td class="column2 style6 n">2</td>
+          </tr>
+          <tr class="row130">
+            <td class="column0 style1 null"></td>
+            <td class="column1 style2 s">RU category</td>
+            <td class="column2 style1 s">Cat A</td>
+          </tr>
+          <tr class="row131">
+            <td class="column0 style1 null"></td>
+            <td class="column1 style2 s">O-RU:O-DU Port</td>
+            <td class="column2 style7 s">1:1</td>
+          </tr>
+          <tr class="row132">
+            <td class="column0 style1 null"></td>
+            <td class="column1 style2 s">Max Bandwidth/Port</td>
+            <td class="column2 style1 s">25Gbps</td>
+          </tr>
+          <tr class="row133">
+            <td class="column0 style1 null"></td>
+            <td class="column1 style2 null"></td>
+            <td class="column2 style1 null"></td>
+          </tr>
+          <tr class="row134">
+            <td class="column0 style1 null"></td>
+            <td class="column1 style2 null"></td>
+            <td class="column2 style1 null"></td>
+          </tr>
+          <tr class="row135">
+            <td class="column0 style15 null"></td>
+            <td class="column1 style16 null"></td>
+            <td class="column2 style15 null"></td>
+          </tr>
+          <tr class="row136">
+            <td class="column0 style3 s">Platform</td>
+            <td class="column1 style2 null"></td>
+            <td class="column2 style1 null"></td>
+          </tr>
+          <tr class="row137">
+            <td class="column0 style3 null"></td>
+            <td class="column1 style2 s">ISO installation</td>
+            <td class="column2 style1 s">Supported</td>
+          </tr>
+          <tr class="row138">
+            <td class="column0 style3 null"></td>
+            <td class="column1 style2 s">Process Monitoring</td>
+            <td class="column2 style1 s">Supported</td>
+          </tr>
+          <tr class="row139">
+            <td class="column0 style3 null"></td>
+            <td class="column1 style2 s">System Monitoring</td>
+            <td class="column2 style1 s">Supported</td>
+          </tr>
+          <tr class="row140">
+            <td class="column0 style3 s">&nbsp;</td>
+            <td class="column1 style2 s">SFTP for ORU</td>
+            <td class="column2 style1 s">Supported</td>
+          </tr>
+          <tr class="row141">
+            <td class="column0 style3 null"></td>
+            <td class="column1 style11 s">BH Over VF</td>
+            <td class="column2 style1 s">Supported</td>
+          </tr>
+          <tr class="row142">
+            <td class="column0 style3 null"></td>
+            <td class="column1 style11 s">Firewall</td>
+            <td class="column2 style1 s">Supported</td>
+          </tr>
+          <tr class="row143">
+            <td class="column0 style3 null"></td>
+            <td class="column1 style11 s">Audit Logging</td>
+            <td class="column2 style1 s">Supported</td>
+          </tr>
+          <tr class="row144">
+            <td class="column0 style3 null"></td>
+            <td class="column1 style11 s">LibHw</td>
+            <td class="column2 style1 s">Supported</td>
+          </tr>
+          <tr class="row145">
+            <td class="column0 style3 null"></td>
+            <td class="column1 style11 s">Persistent IP on Backhaul</td>
+            <td class="column2 style1 s">Supported</td>
+          </tr>
+          <tr class="row146">
+            <td class="column0 style3 null"></td>
+            <td class="column1 style11 s">Login Banner for RHEL</td>
+            <td class="column2 style1 s">Supported</td>
+          </tr>
+          <tr class="row147">
+            <td class="column0 style3 null"></td>
+            <td class="column1 style11 s">Default Password change option from EMS (SSH, Netconf)</td>
+            <td class="column2 style1 s">Supported</td>
+          </tr>
+          <tr class="row148">
+            <td class="column0 style3 null"></td>
+            <td class="column1 style11 s">Linux Platform Services, Kernel Logs and BMC - stripping confidential data from logs</td>
+            <td class="column2 style1 s">Supported</td>
+          </tr>
+          <tr class="row149">
+            <td class="column0 style3 null"></td>
+            <td class="column1 style11 s">Terminal, SSH and File Server Related Login Requirements</td>
+            <td class="column2 style1 s">Supported</td>
+          </tr>
+          <tr class="row150">
+            <td class="column0 style3 null"></td>
+            <td class="column1 style11 null"></td>
+            <td class="column2 style1 null"></td>
+          </tr>
+          <tr class="row151">
+            <td class="column0 style3 s">Platform and OAM</td>
+            <td class="column1 style2 null"></td>
+            <td class="column2 style1 null"></td>
+          </tr>
+          <tr class="row152">
+            <td class="column0 style3 null"></td>
+            <td class="column1 style2 s">ORAN based Software Upgrade</td>
+            <td class="column2 style6 s">Supported</td>
+          </tr>
+          <tr class="row153">
+            <td class="column0 style3 null"></td>
+            <td class="column1 style2 s">Factory default</td>
+            <td class="column2 style6 s">Supported</td>
+          </tr>
+          <tr class="row154">
+            <td class="column0 style3 null"></td>
+            <td class="column1 style12 s">Manufacturing Tool</td>
+            <td class="column2 style6 null"></td>
+          </tr>
+          <tr class="row155">
+            <td class="column0 style3 s">OAM</td>
+            <td class="column1 style2 null"></td>
+            <td class="column2 style1 null"></td>
+          </tr>
+          <tr class="row156">
+            <td class="column0 style1 null"></td>
+            <td class="column1 style2 s">FH M-plane for O-RU</td>
+            <td class="column2 style1 s">Supported</td>
+          </tr>
+          <tr class="row157">
+            <td class="column0 style1 null"></td>
+            <td class="column1 style2 s">O-DU Fault Management</td>
+            <td class="column2 style7 s">Supported</td>
+          </tr>
+          <tr class="row158">
+            <td class="column0 style1 null"></td>
+            <td class="column1 style2 s">PM Counters (O-DU) Mgmt - ODU</td>
+            <td class="column2 style1 s">Supported</td>
+          </tr>
+          <tr class="row159">
+            <td class="column0 style1 null"></td>
+            <td class="column1 style2 s">Heatbeat Management - EMS</td>
+            <td class="column2 style1 s">Supported</td>
+          </tr>
+          <tr class="row160">
+            <td class="column0 style1 null"></td>
+            <td class="column1 style2 s">PM File Upload - EMS</td>
+            <td class="column2 style1 s">Supported</td>
+          </tr>
+          <tr class="row161">
+            <td class="column0 style1 null"></td>
+            <td class="column1 style2 s">File Management - EMS</td>
+            <td class="column2 style1 s">Supported</td>
+          </tr>
+          <tr class="row162">
+            <td class="column0 style1 null"></td>
+            <td class="column1 style2 s">VES Event Streaming</td>
+            <td class="column2 style1 s">Supported</td>
+          </tr>
+          <tr class="row163">
+            <td class="column0 style1 null"></td>
+            <td class="column1 style2 s">PNF Registration</td>
+            <td class="column2 style1 s">Supported</td>
+          </tr>
+          <tr class="row164">
+            <td class="column0 style1 null"></td>
+            <td class="column1 style2 s">Transmission Management</td>
+            <td class="column2 style1 s">Supported</td>
+          </tr>
+          <tr class="row165">
+            <td class="column0 style1 null"></td>
+            <td class="column1 style2 s">Factory default</td>
+            <td class="column2 style1 s">Supported</td>
+          </tr>
+          <tr class="row166">
+            <td class="column0 style1 null"></td>
+            <td class="column1 style13 s">Log Upload</td>
+            <td class="column2 style1 s">Supported</td>
+          </tr>
+          <tr class="row167">
+            <td class="column0 style1 null"></td>
+            <td class="column1 style14 s">ORU DHCP Server(V4)</td>
+            <td class="column2 style1 s">Supported</td>
+          </tr>
+          <tr class="row168">
+            <td class="column0 style1 null"></td>
+            <td class="column1 style12 s">ORU File Server (V4)</td>
+            <td class="column2 style1 s">Supported</td>
+          </tr>
+          <tr class="row169">
+            <td class="column0 style1 null"></td>
+            <td class="column1 style12 s">ORAN WG5 Discovery-LAN Discovery Aspects</td>
+            <td class="column2 style1 s">Supported</td>
+          </tr>
+          <tr class="row170">
+            <td class="column0 style1 null"></td>
+            <td class="column1 style12 s">ORAN WG5 Discovery-ODU IP Address Discovery using DHCP (IPv4, IPv6)</td>
+            <td class="column2 style1 s">Supported</td>
+          </tr>
+          <tr class="row171">
+            <td class="column0 style1 null"></td>
+            <td class="column1 style12 s">ORAN WG5 Discovery-SMO/MnS Consumer Discovery</td>
+            <td class="column2 style1 s">Supported</td>
+          </tr>
+          <tr class="row172">
+            <td class="column0 style1 null"></td>
+            <td class="column1 style12 s">TLS with passsword</td>
+            <td class="column2 style1 s">Supported</td>
+          </tr>
+          <tr class="row173">
+            <td class="column0 style3 s">Networking</td>
+            <td class="column1 style2 null"></td>
+            <td class="column2 style1 null"></td>
+          </tr>
+          <tr class="row174">
+            <td class="column0 style1 null"></td>
+            <td class="column1 style2 s">Transport</td>
+            <td class="column2 style1 s">IPv4, IPv6</td>
+          </tr>
+          <tr class="row175">
+            <td class="column0 style1 null"></td>
+            <td class="column1 style2 s">Static vLANs</td>
+            <td class="column2 style1 s">{FH-C/U, FH-M, Midhaul}</td>
+          </tr>
+          <tr class="row176">
+            <td class="column0 style1 null"></td>
+            <td class="column1 style2 s">DHCP Discovery</td>
+            <td class="column2 style1 s">ODU, ORU</td>
+          </tr>
+          <tr class="row177">
+            <td class="column0 style1 s">E2E Features (EMS, OAM, DU, CU,L1)</td>
+            <td class="column1 style2 null"></td>
+            <td class="column2 style1 null"></td>
+          </tr>
+          <tr class="row178">
+            <td class="column0 style1 null"></td>
+            <td class="column1 style11 s">Energy Saving</td>
+            <td class="column2 style1 s">Supported</td>
+          </tr>
+          <tr class="row179">
+            <td class="column0 style1 null"></td>
+            <td class="column1 style2 s">DCA/DCD</td>
+            <td class="column2 style6 s">Supported</td>
+          </tr>
+          <tr class="row180">
+            <td class="column0">&nbsp;</td>
+            <td class="column1">&nbsp;</td>
+            <td class="column2 style17 null"></td>
+          </tr>
+          <tr class="row181">
+            <td class="column0">&nbsp;</td>
+            <td class="column1">&nbsp;</td>
+            <td class="column2 style17 null"></td>
+          </tr>
+        </tbody>
+    </table>
+  </body>
+</html>
+
+
+{% endblock %}
+

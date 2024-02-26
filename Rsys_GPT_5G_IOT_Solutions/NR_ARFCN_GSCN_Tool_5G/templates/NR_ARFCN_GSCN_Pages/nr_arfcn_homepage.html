@@ -1,0 +1,65 @@
+{% extends "All_Tools_Pages/headerfooter.html" %}
+
+{% block content %}
+
+{% load static %}
+
+
+
+<h1 class="fs-1 text-center fw-bold text-danger">NR-ARFCN-GSCN Calculator Tool</h1>
+
+<form role="form" method="POST" action="{% url 'nr_arfcn_calculation' %}" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="card-body container">
+
+            <div class="form-group">
+                <label for="carrierband"> Enter the Carrier Band (ex:78) :</label>
+                <input id="carrierband" class="form-control" placeholder="Enter Bandwidth" name ="carrierband"><br>
+            </div>  
+            
+            <div class="form-group">
+                <label for="Scs"> Enter the Subcarrier Spacing (SCS)</label>
+                <input class="form-control" id="Scs" placeholder="Enter SCS" name ="scs"><br>
+            </div>
+
+            <div class="form-group">
+                <label for="nrmu"> Enter NRMU value: (ex:1)  :</label>
+                <input class="form-control" id="nrmu" placeholder="Enter SCS" name ="nrmu"><br>
+            </div>
+
+            <div class="form-group">
+                <label for="nrmu"> Enter bwdl value:</label>
+                <input class="form-control" id="nrmu" placeholder="Enter bandwidth" name ="bwdl"><br>
+            </div>
+
+            <div class="form-group">
+                <label for="bwdl"> Enter freq Range (FR1 or FR2)  :</label>
+                <input class="form-control" id="bwdl" placeholder="Enter SCS" name ="fr"><br>
+            </div>
+
+            <div class="form-group">
+                <label for="absfreqssb"> Enter Absolute Frequency SSB (ex:3708480)  :</label>
+                <input class="form-control" id="absfreqssb" placeholder="Enter SCS" name ="absfreqssb"><br>
+            </div>
+
+            <div class="form-group">
+                <label for="dlearfcn">Enter DL Earfcn (ex:649980)  :</label>
+                <input class="form-control" id="dlearfcn" placeholder="Enter SCS" name ="dlearfcn"><br>
+            </div>
+
+            <div class="d-flex justify-content-center">
+                <button type="submit" class="btn btn-primary" >Calculate</button>
+            </div>
+
+    </div>
+</form>
+
+{% if charts %}
+    
+    <img src="data:image/png;base64, {{chart|safe}}">
+    
+{% endif%}
+
+
+
+{% endblock %}

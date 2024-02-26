@@ -1,0 +1,36 @@
+
+{% extends "All_Tools_Pages/headerfooter.html" %}
+
+
+{% block content %}
+
+{% load static %}
+
+
+<div class="container">
+    <h1 class="fs-1 text-center fw-bold text-danger">PTP Timing Delay Parser</h1>
+
+    <form class="form text-center" role="form" method="POST" action="{% url 'ptp_delay_calculation' %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="card-body text-center">
+            <div class="form-group">
+                <label for="ptp_log_file" class="text-center"> PTP Logs</label><br>
+                <input id="ptp_log_file" onchange="return fileValidation()" type="file"  name="ptp_log_file"><br>
+                <label for="phc_log_file" class="text-center"> PHC Logs </label><br>
+                <input id="phc_log_file" onchange="return fileValidation()" type="file"  name="phc_log_file"><br>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary text-center">Calculate</button>
+    </form>
+</div>
+
+<div class="container">
+{% if charts %}
+    {% for chart in charts %}
+    <img style="width:100%;" src="data:image/png;base64, {{chart|safe}}">
+    {% endfor %}
+{% endif%}
+</div>
+
+{% endblock %}
+

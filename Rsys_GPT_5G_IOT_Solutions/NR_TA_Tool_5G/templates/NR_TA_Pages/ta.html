@@ -1,0 +1,45 @@
+
+{% extends "All_Tools_Pages/headerfooter.html" %}
+
+
+{% block content %}
+
+{% load static %}
+
+<div class="container">
+
+<h1 class="fs-1 text-center fw-bold text-danger">5G Timing Advance Distance Calculator</h1>
+<form class="form text-center" id="timingAdvanceForm">
+    <label for="timingAdvanceValue">Timing Advance value :</label>
+    <input type="number" id="timingAdvanceValue" name="timingAdvanceValue" step="1" required><br>
+
+    <input type="submit" value="Calculate Timing Advance Distance">
+</form>
+
+<p id="timingAdvanceDistanceResult"></p>
+</div>
+<script>
+    document.getElementById("timingAdvanceForm").onsubmit = function (event) {
+        event.preventDefault();
+
+        const timingAdvanceValue = parseInt(document.getElementById("timingAdvanceValue").value);
+
+        // Perform the calculation in JavaScript
+        const timingAdvanceDistanceResult = calculateTimingAdvanceDistance(timingAdvanceValue);
+
+        document.getElementById("timingAdvanceDistanceResult").innerText = `Timing Advance Distance: ${timingAdvanceDistanceResult.toFixed(2)} meters`;
+    };
+
+    function calculateTimingAdvanceDistance(timingAdvanceValue) {
+        // Calculate the Timing Advance Distance in meters
+        const speedOfLight = 3.00e8; // Speed of light in meters per second
+        const samplingRate = 122.88e6; // Default sampling rate in Hz
+
+        const timingAdvanceDistance = (timingAdvanceValue * speedOfLight * 32) / (samplingRate);
+
+        return timingAdvanceDistance;
+    }
+</script>
+
+{% endblock %}
+

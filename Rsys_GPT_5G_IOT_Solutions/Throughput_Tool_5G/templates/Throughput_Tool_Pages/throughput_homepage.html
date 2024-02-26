@@ -1,0 +1,77 @@
+{% extends "All_Tools_Pages/headerfooter.html" %}
+
+
+{% block content %}
+
+{% load static %}
+
+<h1 class="fs-1 text-center fw-bold text-danger" style="height:100px;margin-top:40px;">Throughput Calculator Tool</h1>
+
+<form role="form" method="POST" action="{% url 'throughput_calculation' %}" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="card-body container">
+
+            <div class="form-group">
+                <label for="bandwdith"> Enter the 5G channel Bandwidth (MHz) :</label>
+                <small id="bandwidth" class="form-text text-muted"> Ex (100 Mhz) </small><br>
+                <input id="bandwidth" class="form-control" placeholder="Enter Bandwidth" name ="bandwidth"><br>
+            </div>  
+            
+            <div class="form-group">
+                <label for="Scs"> Enter the Subcarrier Spacing (SCS)</label>
+                <small id="Scs" class="form-text text-muted"> Ex(30) </small>
+                <input class="form-control" id="Scs" placeholder="Enter SCS" name ="scs"><br>
+            </div>
+
+            <div class="form-group">
+                <label for="layers">Enter the number of MIMO Layers :</label>
+                <small id="layers" class="form-text text-muted"> Ex(4) </small>
+                <select class="form-control" name="mimo" id="layers">
+                    <option value="1" class="form-control">1</option>
+                    <option value="2" class="form-control">2</option>
+                    <option value="3" class="form-control">3</option>
+                    <option value="4" class="form-control">4</option>
+                </select><br>
+
+            </div>
+
+            <div class="form-group">
+                <label for="MCS">Choose MCS or CQI:</label>
+                <select name="mcs" id="MCS" class="form-control text-muted">
+                    <option value="0" class="form-control ">0 for CQI</option>
+                    <option value="1" class="form-control ">1 for MCS</option>
+                </select><br>
+            </div>
+
+            <div class="form-group">
+                <label for="MCSvalue">Enter MCS or CQI value:</label>
+                <input class="form-control" placeholder=" Enter here " name="mcsvalue">
+                <small id="MCSvalue" class="form-text text-muted">
+                    Enter in range (1-15) if CQI or in range (1-27) if MCS is selected.
+                </small>
+                <br>
+            </div>
+            <br>
+            <div class="form-group">
+                <label for="BLER">Enter the Block Error Rate:</label>
+                <small class="form-text text-muted"> Ex (< 10) </small>
+                <input class="form-control" placeholder="Block Error Rate here" name ="bler"><br>
+            </div>
+
+        <div class="d-flex justify-content-center">
+            <button type="submit" class="btn btn-primary">Calculate</button>
+        </div>
+    </div>
+</form>
+
+<div class="container">
+{% if charts %}
+{% autoescape off %}
+    {{charts|safe}}
+{% endautoescape %}
+
+{% endif%}
+
+</div>
+{% endblock %}
+

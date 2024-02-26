@@ -1,0 +1,31 @@
+{% extends "All_Tools_Pages/headerfooter.html" %}
+
+
+{% block content %}
+
+{% load static %}
+
+<div class="container">
+    <h1 class="fs-1 text-center fw-bold text-danger">CPU Utilizatoin File</h1>
+
+    <form class="form text-center" role="form" method="POST" action="{% url 'odu_cpu_utilization' %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="card-body text-center">
+            <div class="form-group">
+                <label for="du_log_file" class="text-center">==========</label><br>
+                <input id="du_log_file" onchange="return fileValidation()" type="file"  name="odu_cpu_file">
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary text-center">Calculate</button>
+    </form>
+</div>
+
+
+{% if charts %}
+    {% autoescape off %}
+            {{charts|safe}}
+    {% endautoescape %}
+{% endif%}
+
+
+{% endblock %}

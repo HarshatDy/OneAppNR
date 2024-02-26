@@ -1,0 +1,53 @@
+
+{% extends "All_Tools_Pages/headerfooter.html" %}
+
+
+{% block content %}
+
+{% load static %}
+<div class="container">
+
+<h1 class="fs-1 text-center fw-bold text-danger">5G NR Cell Identity (NCI) Calculator</h1>
+<form class="form text-center" id="nciForm">
+    <label for="pciValue">Physical Cell Identity (PCI) value (0 to 1048575):</label>
+    <input type="number" id="pciValue" name="pciValue" min="0" max="1048575" required><br>
+
+    <label for="crntiValue">Cell Radio Network Temporary Identifier (C-RNTI) value (0 to 65535):</label>
+    <input type="number" id="crntiValue" name="crntiValue" min="0" max="65535" required><br>
+
+    <input type="submit" value="Calculate NCI">
+</form>
+
+<p id="nciResult"></p>
+</div>
+
+<script>
+    document.getElementById("nciForm").onsubmit = function (event) {
+        event.preventDefault();
+
+        const pciValue = parseInt(document.getElementById("pciValue").value);
+        const crntiValue = parseInt(document.getElementById("crntiValue").value);
+
+        // Perform the calculation in JavaScript
+        const nciResult = calculateNCI(pciValue, crntiValue);
+
+        document.getElementById("nciResult").innerText = `5G NR Cell Identity (NCI): ${nciResult}`;
+    };
+
+    function calculateNCI(pci, crnti) {
+        // Check if the inputs are within valid ranges
+        if (!(0 <= pci && pci <= 1048575)) {
+            throw new Error("PCI value must be between 0 and 1048575 (20 bits).");
+        }
+        if (!(0 <= crnti && crnti <= 65535)) {
+            throw new Error("C-RNTI value must be between 0 and 65535 (16 bits).");
+        }
+
+        // Shift the PCI to the upper 20 bits and combine it with the C-RNTI in the lower 16 bits
+        const nci = (pci << 16) | crnti;
+        return nci;
+    }
+</script>
+
+{% endblock %}
+

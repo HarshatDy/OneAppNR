@@ -1,0 +1,97 @@
+{% extends "All_Tools_Pages/headerfooter.html" %}
+
+
+{% block content %}
+
+{% load static %}
+
+<form role="form" method="POST" action="{% url 'link_budget' %}" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="card-body container">
+                
+        <div class="form-group">
+            <label for="gtranspow"> Enter the gNodeB transmit power (dBm) : Ex-18.4 </label>
+            <input class="form-control required" id="gtranspow" placeholder="Enter here" name ="gtranspow"><br>
+        </div>
+        <!-- <div class="form-group">
+            <label for="subcarrierqty"> Enter the subcarrier quantity</label>
+            <input class="form-control" id="subcarrierqty" placeholder="Enter subcarrierqty" name ="subcarrierqty"><br>
+        </div> -->
+        <div class="form-group">
+            <label for="gantgain"> Enter the gNodeB antenna gain (dBi): Ex 21</label>
+            <input class="form-control required" id="gantgain" placeholder="Enter here" name ="gantgain"><br>
+        </div>
+        <div class="form-group">
+            <label for="gcableloss"> Enter the gNodeB cable loss (dB): Ex-1 </label>
+            <input class="form-control" id="gcableloss" placeholder="Enter Here" name ="gcableloss"><br>
+        </div>
+        <div class="form-group">
+            <label for="pathloss"> Enter the Path loss(dB): Ex-77.6 </label>
+            <input class="form-control" id="pathloss" placeholder="Enter Here" name ="pathloss"><br>
+        </div>
+        <div class="form-group">
+            <label for="penetloss"> Enter the Penetration loss(dB): Ex-22</label>
+            <input class="form-control" id="penetloss" placeholder="Enter Here" name ="penetloss"><br>
+        </div>
+
+        <div class="form-group">
+            <label for="foliageloss"> Enter the foliage loss (dB): Ex-8.5</label>
+            <input class="form-control" id="foliageloss" placeholder="Enter Here" name ="foliageloss"><br>
+        </div>
+        <div class="form-group">
+            <label for="bodybockloss"> Enter the body block loss (dB): Ex-3</label>
+            <input class="form-control" id="bodybockloss" placeholder="Enter Here" name ="bodybockloss"><br>
+        </div>
+        <div class="form-group">
+            <label for="interfermargin"> Enter the interference margin (dB): Ex-2</label>
+            <input class="form-control" id="interfermargin" placeholder="Enter Here" name ="interfermargin"><br>
+        </div>
+        <div class="form-group">
+            <label for="rainicemargin"> Enter the rain/ice margin (dB): Ex-0</label>
+            <input class="form-control" id="rainicemargin" placeholder="Enter Here" name ="rainicemargin"><br>
+        </div>
+        <div class="form-group">
+            <label for="slowfadingmargin"> Enter the Slow Fading margin (dB): Ex-8 </label>
+            <input class="form-control" id="slowfadingmargin" placeholder="Enter Here" name ="slowfadingmargin"><br>
+        </div>
+        <div class="form-group">
+            <label for="ueantgain"> Enter UE antenna gain (dB): Ex-0 </label>
+            <input class="form-control" id="ueantgain" placeholder="Enter Here" name ="ueantgain"><br>
+        </div>
+        <div class="form-group">
+            <label for="uecableloss"> Enter UE cable loss (dB): Ex-0 </label>
+            <input class="form-control" id="uecableloss" placeholder="Enter Here" name ="uecableloss"><br>
+        </div>
+        <div class="form-group">
+            <label for="noisefig"> Enter Noise Figure (dB) Ex- 5</label>
+            <input class="form-control" id="noisefig" placeholder="Enter Here" name ="noisefig"><br>
+        </div>
+
+        <div class="form-group">
+            <label for="thermalnoise"> Enter Thermal Noise (dBm) Ex= -101 </label>
+            <input class="form-control" id="thermalnoise" placeholder="Enter Here" name ="thermalnoise"><br>
+        </div>
+
+        <div class="form-group">
+            <label for="thresholdsinr"> Enter the demodulation threshold SINR (dB) Ex- 5 </label>
+            <input class="form-control" id="thresholdsinr" placeholder="Enter Here" name ="thresholdsinr"><br>
+        </div>
+
+
+        <div class="d-flex justify-content-center">
+            <button type="submit" class="btn btn-primary" >Calculate</button>
+        </div>
+
+    </div>
+</form>
+
+<div class="container" width="100%">
+    {% if charts %}
+        
+        <img src="data:image/png;base64, {{charts|safe}}">
+      
+    {% endif%}
+    </div>
+
+
+{% endblock %}

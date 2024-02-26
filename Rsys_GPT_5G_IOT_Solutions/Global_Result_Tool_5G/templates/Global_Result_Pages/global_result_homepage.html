@@ -1,0 +1,121 @@
+{% extends "All_Tools_Pages/headerfooter.html" %}
+
+
+{% block content %}
+
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+
+<h2>Radisys Lab India with Keysight UEsim</h2>
+
+<table>
+  <tr>
+    <th>Parameter Name</th>
+    <th>Value</th>
+  </tr>
+  <tr>
+    <td>Duplex Mode</td>
+    <td>TDD</td>
+  </tr>
+  <tr>
+    <td>Frequency Range</td>
+    <td>Fr1</td>
+  </tr>
+  <tr>
+    <td>Carrier bandwidth</td>
+    <td>1 x 100MHz</td>
+  </tr>
+  <tr>
+    <td>Subcarrier Spacing</td>
+    <td>30kHz</td>
+  </tr>
+  <tr>
+    <td>TDD Slot Format</td>
+    <td>7D1S2U</td>
+  </tr>
+  <tr>
+    <td>UL to DL logical data slot ratio </td>
+    <td>1:4</td>
+  </tr>
+  <tr>
+    <td># of transmitted SSBs </td>
+    <td>1</td>
+  </tr>
+    <tr>
+    <td>SS Burst Set Period</td>
+    <td>20ms</td>
+  </tr>
+   <tr>
+    <td>CSI-RS Tracking Period</td>
+    <td>80ms</td>
+  </tr>
+  <tr>
+    <td>Guard Period Length</td>
+    <td>1 symbols</td>
+  </tr>
+  <tr>
+    <td>UL MIMO Mode</td>
+    <td>2x2 MIMO</td>
+  </tr>
+  <tr>
+    <td>UL Modulation</td>
+    <td>64QAM</td>
+  </tr>
+</table>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+<body>
+
+<canvas id="myChart" style="width:100%;max-width:1080px"></canvas>
+
+<script>
+var xValues = ["64QAM", "256QAM"];
+var yValues = [102,1400];
+var barColors = ["red", "green"];
+
+new Chart("myChart", {
+  type: "bar",
+  data: {
+    labels: xValues,
+    datasets: [{
+      backgroundColor: barColors,
+      data: yValues
+    }]
+  },
+  options: {
+    legend: {display: false},
+    title: {
+      display: true,
+      text: "5G FR1 TDD DL throughput(including 10% BLER)"
+    }
+  }
+});
+</script>
+
+</body>
+</html>
+
+
+{% endblock %}

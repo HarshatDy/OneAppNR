@@ -1,0 +1,42 @@
+
+{% extends "All_Tools_Pages/headerfooter.html" %}
+
+
+{% block content %}
+
+{% load static %}
+
+
+<div class="container">
+    <h1 class="fs-1 text-center fw-bold text-danger">Frequency Calculator Tool</h1>
+
+    <form class="form text-center" role="form" method="POST" action="{% url 'freq_value' %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="card-body text-center">
+            <div class="form-group">
+                <label for="du_log_file" class="text-center">Add the for gscn table</label>
+                <input id="du_log_file" onchange="return fileValidation()" type="file"  name="freq_table_file">
+            </div>
+            <label > Enter GSCN Value</label>
+            <input class="text-center" name="gscn_value">
+        </div>
+
+        <button type="submit" class="btn btn-primary text-center">Calculate</button>
+    </form>
+</div>
+{% if charts %}
+<table>
+{% for chart in charts %}
+<th>
+    <td>{{ chart }} </td>
+</th>
+{% endfor %}
+</table>
+
+{% endif%}
+
+<a href="/freq_value"> Click Here</a>
+
+
+
+{% endblock %}

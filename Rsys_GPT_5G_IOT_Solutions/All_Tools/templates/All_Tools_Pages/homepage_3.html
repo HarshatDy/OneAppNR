@@ -1,0 +1,176 @@
+{% extends "All_Tools_Pages/headerfooter.html" %}
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900">
+
+{% block content %}
+<style>
+
+   
+
+    .btn:hover{
+        /* content: This is it; */
+        /* padding:70px; */
+        transition: all ease-in-out .5s;
+        /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
+        box-shadow: 0px 5px 15px black;      
+        background-color: #c1264c;  
+    }
+
+    .btn{
+        overflow:hidden;
+        height:240px;
+        /* padding:50px; */
+        position: relative;
+
+    
+    }
+
+    .hovered:hover{
+        margin:0px;
+    }
+    
+    #background-pic{
+        /* background-image:url("/static/admin/img/image72.jpg"); */
+        background: linear-gradient(to right, #670099, #e81e7a);
+        background: cover;
+        border-radius : 0px 0px 10px 10px;
+    }
+
+</style>
+
+{% load static %}
+<body>
+
+    <!-- <img  src=" {% static "admin/img/image72.jpg" %}"> -->
+    
+
+    <div class="row" style="margin-top:50px; margin-left:10px; margin-right:10px;">
+        <div class="col-sm-4 col-12" style="height:50%;">   
+            <div class="row" style="height:50%; padding:10%">
+                <a href="/cell_identity_tool" class="btn btn-outline-success btn-lg fs-4 text-center" role="button" aria-disabled="true">
+                    NR Cell Identity Tool <p class="text-center fs-6">Graphical view for Throughput and Throughput dip due to BLER%</p></a>
+            </div>
+            <div class="row" style="height:50%; padding:10%">
+                <a href="/tbs_tool" class="btn btn-outline-success btn-lg fs-4 text-center" role="button" aria-disabled="true"> 
+                    TBS Calculation <p class="text-center fs-6">Frequency information, positions of DL/UL carriers BW in the band, Checks & Graphical view for all channel positions.
+                    </p>
+                 </a>
+            </div>
+        </div>
+        
+        <div class="col-sm-4 col-12" style="height:50%;">
+            <div class="row" style="height:50%;padding:10%">
+                <a href="/epre_tool" class="btn btn-outline-success btn-lg fs-4 text-center" role="button" aria-disabled="true">
+                    EPRE Calculation <p class="text-center fs-6"> Graphical view for all KPI information, Dashboard can help with interpreting & presenting data.</p>
+                </a>
+            </div>
+           
+        </div>
+        <div class="col-sm-4 col-12" style="height:50%;">
+            <div class="row" style="height:50%;padding:10% ">
+                <a href="/free_space_path_loss_tool" class="btn btn-outline-success btn-lg fs-4 text-center" role="button" aria-disabled="true">
+                    Free Space Path Loss Calculation <p class="text-center fs-6"> CSV output and Graphical View of masterOffset, status, and PathDelay(ns) of linuxptp package include the ptp4l and phc2sys.</p>
+                </a>
+            </div>
+            <div class="row" style="height:50%;padding:10%">
+                <a href="/ta_tool" class="btn btn-outline-success btn-lg fs-4 text-center" role="button" aria-disabled="true"> 
+                    Timing Advance Calculation<p class="text-center fs-6">Graphical View of 5G wireless KPI from Qualcomm UE logs, (eg, Tput, SINR, MCS, QAM etc)</p>
+                </a>
+
+            </div>
+            <!-- <div class="row" style="height:50%;padding:10%">
+                <a href="/ota_algo_tool" class="btn btn-outline-success btn-lg fs-4 text-center" role="button" aria-disabled="true"> 
+                    NR Algorithm tunning APP <p class="text-center fs-6"> Graphical analysis of various internal 5G DU parameters for eg, (DLLA, ULLA, CLPC, OLLA, ILLA, etc)</p>
+                </a>
+            </div> -->
+        </div>
+        <!-- <div class="col-sm-3 col-12" style="height:50%;">
+            <div class="row" style="height:50%;padding:10%">
+                <a href="/link_budget_tool" class="btn btn-outline-success btn-lg fs-4 text-center " role="button" aria-disabled="true">
+                    NR LinkBudget APP <p class="text-center fs-6">  Estimate the maximum allowed path loss (MAPL) on radio path from transmit antenna to receive antenna and Graphical representation
+                    of Radio Channel Status, Link Budget(dBm), Reception sensitivity(dBm) and Full Path loss(dB)
+                    </p>
+                </a>
+            </div>
+            <div class="row" style="height:50%;padding:10%">
+                <a href="/nr_arfcn_tool" class="btn btn-outline-success btn-lg fs-4 text-center" role="button" aria-disabled="true"> 
+                    NR PRB Occupancy APP <p class="text-center fs-6">Content of each 5G resource block (PRB) per frame/subframe & slot level. Graphical view of all kinds of Constellation.</p>
+                </a>
+            </div>
+        </div> -->
+
+    </div>
+
+
+    <div class="row" style="margin-top:50px; margin-left:10px; margin-right:10px;">
+        <div class="col-sm-3 col-12" style="height:50%;">   
+            <div class="row" style="height:50%; padding:10%">
+                <a href="/throughput_tool" class="btn btn-outline-success btn-lg fs-4 text-center" role="button" aria-disabled="true">
+                    NR Throughput APP: <p class="text-center fs-6">Graphical view for Throughput and Throughput dip due to BLER%</p></a>
+            </div>
+            <div class="row" style="height:50%; padding:10%">
+                <a href="/re_mapping_tool" class="btn btn-outline-success btn-lg fs-4 text-center" role="button" aria-disabled="true"> 
+                    NR Frequencies APP <p class="text-center fs-6">Frequency information, positions of DL/UL carriers BW in the band, Checks & Graphical view for all channel positions.
+                    </p>
+                 </a>
+            </div>
+        </div>
+        
+        <div class="col-sm-3 col-12" style="height:50%;">
+            <div class="row" style="height:50%;padding:10%">
+                <a href="/du_log_parser_tool" class="btn btn-outline-success btn-lg fs-4 text-center" role="button" aria-disabled="true">
+                    NR Dashboard APP <p class="text-center fs-6"> Graphical view for all KPI information, Dashboard can help with interpreting & presenting data.</p>
+                </a>
+            </div>
+            <div class="row" style="height:50%;padding:10%">
+                <a href="/qual_log_parsing_tool" class="btn btn-outline-success btn-lg fs-4 text-center" role="button" aria-disabled="true"> 
+                    Qualcomm UE KPI Presentation APP<p class="text-center fs-6">Graphical View of 5G wireless KPI from Qualcomm UE logs, (eg, Tput, SINR, MCS, QAM etc)</p>
+                </a>
+
+            </div>
+        </div>
+        <div class="col-sm-3 col-12" style="height:50%;">
+            <div class="row" style="height:50%;padding:10% ">
+                <a href="/ptp_timing_delay_tool" class="btn btn-outline-success btn-lg fs-4 text-center" role="button" aria-disabled="true">
+                    IEEE_1588 PTP Timing analysis APP <p class="text-center fs-6"> CSV output and Graphical View of masterOffset, status, and PathDelay(ns) of linuxptp package include the ptp4l and phc2sys.</p>
+                </a>
+            </div>
+            <div class="row" style="height:50%;padding:10%">
+                <a href="/ota_algo_tool" class="btn btn-outline-success btn-lg fs-4 text-center" role="button" aria-disabled="true"> 
+                    NR Algorithm tunning APP <p class="text-center fs-6"> Graphical analysis of various internal 5G DU parameters for eg, (DLLA, ULLA, CLPC, OLLA, ILLA, etc)</p>
+                </a>
+            </div>
+        </div>
+        <div class="col-sm-3 col-12" style="height:50%;">
+            <div class="row" style="height:50%;padding:10%">
+                <a href="/link_budget_tool" class="btn btn-outline-success btn-lg fs-4 text-center " role="button" aria-disabled="true">
+                    NR LinkBudget APP <p class="text-center fs-6">  Estimate the maximum allowed path loss (MAPL) on radio path from transmit antenna to receive antenna and Graphical representation
+                    of Radio Channel Status, Link Budget(dBm), Reception sensitivity(dBm) and Full Path loss(dB)
+                    </p>
+                </a>
+            </div>
+            <div class="row" style="height:50%;padding:10%">
+                <a href="/nr_arfcn_tool" class="btn btn-outline-success btn-lg fs-4 text-center" role="button" aria-disabled="true"> 
+                    NR PRB Occupancy APP <p class="text-center fs-6">Content of each 5G resource block (PRB) per frame/subframe & slot level. Graphical view of all kinds of Constellation.</p>
+                </a>
+            </div>
+        </div>
+
+    </div>
+    <div class="row text-center">
+        <div class=" col-sm-6 col-12 ">
+            <a href="/odu_cpu_utilization_tool" class="btn btn-outline-success btn-lg fs-4 text-center" role="button" aria-disabled="true">
+                NR DU CPU utilization APP <p class="text-center fs-6">CSV and the graphical result of CPU utilization and Process id of any DU Hardware.                </p>
+               </a>
+        </div>
+        <div class=" col-sm-6 col-12">
+             <a href="/global_result_tool" class="btn btn-outline-success btn-lg fs-4 text-center" role="button" aria-disabled="true">
+                NR Global Data Repositiory<p class="text-center fs-6">A graphical view of Radisys DU Result from various customer or Radisys LAB nodes.</p>
+           </a>
+        </div>
+    </div>
+</body>
+
+{% endblock %}
+

@@ -1,0 +1,77 @@
+
+{% extends "All_Tools_Pages/headerfooter.html" %}
+
+
+{% block content %}
+
+{% load static %}
+
+<div class="container">
+
+
+<h1 class="fs-1 text-center fw-bold text-danger">TBS Calculator</h1>
+<form class="form text-center" id="tbsForm">
+    <label for="mcsIndex">MCS index (0-27):</label>
+    <input type="number" id="mcsIndex" name="mcsIndex" min="0" max="27" required><br>
+
+    <label for="numRb">Number of resource blocks:</label>
+    <input type="number" id="numRb" name="numRb" min="1" required><br>
+
+    <label for="numTxAntennas">Number of transmit antennas (1 or 2):</label>
+    <input type="number" id="numTxAntennas" name="numTxAntennas" min="1" max="2" required><br>
+
+    <input type="submit" value="Calculate TBS">
+</form>
+
+<p id="tbsResult"></p>
+</div>
+<script>
+    document.getElementById("tbsForm").onsubmit = function (event) {
+        event.preventDefault();
+
+        const mcsIndex = parseInt(document.getElementById("mcsIndex").value);
+        const numRb = parseInt(document.getElementById("numRb").value);
+        const numTxAntennas = parseInt(document.getElementById("numTxAntennas").value);
+
+        // Send the data to the server for calculation (you'll need a server-side script for this).
+        // Alternatively, you can directly perform the calculation in JavaScript if needed.
+
+        // For simplicity, let's assume the server-side calculation is done and we get the result in tbsResult variable.
+        const tbsResult = calculateTBS(mcsIndex, numRb, numTxAntennas);
+
+        document.getElementById("tbsResult").innerText = `TBS for MCS index ${mcsIndex}, ${numRb} resource blocks, and ${numTxAntennas} transmit antennas: ${tbsResult} bits`;
+    };
+
+    function calculateTBS(mcsIndex, numRb, numTxAntennas) {
+        // Replace the URL with the endpoint where your server-side script is located
+        const apiUrl = "http://your-api-url.com/calculate_tbs";
+
+        // Prepare the data to be sent to the server
+        const data = {
+            mcs_index: mcsIndex,
+            num_rb: numRb,
+            num_tx_antennas: numTxAntennas,
+        };
+
+        // Send the data to the server using fetch
+        return fetch(apiUrl, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                // Assuming the server returns the TBS value in the 'tbs' field
+                return data.tbs;
+            })
+            .catch((error) => {
+                console.error("Error fetching data:", error);
+                return "Error calculating TBS";
+            });
+    }
+</script>
+
+{% endblock %}
+

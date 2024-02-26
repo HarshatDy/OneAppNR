@@ -1,0 +1,47 @@
+
+{% extends "All_Tools_Pages/headerfooter.html" %}
+
+
+{% block content %}
+
+{% load static %}
+
+<div class="container">
+
+<h1 class="fs-1 text-center fw-bold text-danger">EPRE Power Calculator</h1>
+<form class="form text-center" id="eprePowerForm">
+    <label for="outputPowerPerTxDbm">Output Power per TX (in dBm):</label>
+    <input type="number" id="outputPowerPerTxDbm" name="outputPowerPerTxDbm" step="any" required><br>
+
+    <label for="numRbPerCell">Number of RB per Cell:</label>
+    <input type="number" id="numRbPerCell" name="numRbPerCell" step="1" required><br>
+
+    <input type="submit" value="Calculate EPRE Power">
+</form>
+
+<p id="eprePowerResult"></p>
+
+</div>  
+<script>
+    document.getElementById("eprePowerForm").onsubmit = function (event) {
+        event.preventDefault();
+
+        const outputPowerPerTxDbm = parseFloat(document.getElementById("outputPowerPerTxDbm").value);
+        const numRbPerCell = parseInt(document.getElementById("numRbPerCell").value);
+
+        // Perform the calculation in JavaScript
+        const eprePowerResult = calculateEprePower(outputPowerPerTxDbm, numRbPerCell);
+
+        document.getElementById("eprePowerResult").innerText = `EPRE Power: ${eprePowerResult.toFixed(2)} dBm`;
+    };
+
+    function calculateEprePower(outputPowerPerTxDbm, numRbPerCell) {
+        // Calculate the EPRE Power in dBm
+        const eprePowerDbm = outputPowerPerTxDbm - 10 * Math.log10(numRbPerCell * 12);
+
+        return eprePowerDbm;
+    }
+</script>
+
+{% endblock %}
+

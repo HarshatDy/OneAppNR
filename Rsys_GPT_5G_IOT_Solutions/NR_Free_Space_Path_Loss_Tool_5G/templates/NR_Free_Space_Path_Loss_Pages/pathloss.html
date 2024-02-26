@@ -1,0 +1,58 @@
+
+{% extends "All_Tools_Pages/headerfooter.html" %}
+
+
+{% block content %}
+
+{% load static %}
+
+<div class="container">
+
+<h1 class="fs-1 text-center fw-bold text-danger" >Free Space Path Loss (FSPL) Calculator</h1>
+<form id="fsplForm" class="form text-center">
+    <label for="distanceKm">Distance between the transmitter and receiver (in kilometers):</label>
+    <input type="number" id="distanceKm" name="distanceKm" step="any" required><br>
+
+    <label for="frequencyGhz">Frequency of the signal (in GHz):</label>
+    <input type="number" id="frequencyGhz" name="frequencyGhz" step="any" required><br>
+
+    <input type="submit" value="Calculate FSPL">
+</form>
+
+<p id="fsplResult"></p>
+</div>  
+<script>
+    document.getElementById("fsplForm").onsubmit = function (event) {
+        event.preventDefault();
+
+        const distanceKm = parseFloat(document.getElementById("distanceKm").value);
+        const frequencyGhz = parseFloat(document.getElementById("frequencyGhz").value);
+
+        // Perform the calculation in JavaScript
+        const fsplResult = calculateFSPL(distanceKm * 1000, frequencyGhz);
+
+        document.getElementById("fsplResult").innerText = `Free Space Path Loss (FSPL) in dB: ${fsplResult.toFixed(2)} dB`;
+    };
+
+    function calculateFSPL(distance, frequency) {
+        // Check if the inputs are valid
+        if (distance <= 0) {
+            throw new Error("Distance must be greater than zero.");
+        }
+        if (frequency <= 0) {
+            throw new Error("Frequency must be greater than zero.");
+        }
+
+        // Convert the frequency to MHz
+        const frequencyMhz = frequency * 10**6;
+
+        // Calculate the FSPL in decibels (dB)
+        const fsplDb = 20 * Math.log10(distance) + 20 * Math.log10(frequencyMhz) + 20 * Math.log10(4 * Math.PI / 299792458);
+
+        return fsplDb;
+    }
+</script>
+
+
+{% endblock %}
+
