@@ -1,4 +1,5 @@
 
+
 {% extends "All_Tools_Pages/headerfooter.html" %}
 
 
@@ -6,28 +7,45 @@
 
 {% load static %}
 
+<body>
 
-<div class="container">
-    <h1 class="fs-1 text-center fw-bold text-danger">Du Log Parsing Tool</h1>
-    <hr>
-
-    <form class="form text-center" role="form" method="POST" action="{% url 'du_calculation' %}" enctype="multipart/form-data">
-        {% csrf_token %}
-        <div class="card-body text-center">
-            <div class="form-group">
-                <label style="height:50px; " for="du_log_file" class="text-center">Add the DU Log File Here</label><br>
-                <input id="du_log_file" onchange="return fileValidation()" type="file"  name="du_log_file">
-            </div>
+<div class="row" style="margin-top:50px; margin-left:10px; margin-right:10px;">
+    <div class="col-sm-4 row-12" style="height:50%;">   
+        <div class="row" style="height:50%; ">
+            <a href="/du_log_parser_tool/cu_du_counters" class="btn btn-outline-success btn-lg fs-4 text-center" role="button" aria-disabled="true">
+                CU - DU Stat Counters  <p class="text-center fs-6"> CU DU Log KPI Counters </p></a>
         </div>
-        
-        <button type="submit" class="btn btn-primary text-center">Calculate</button>
-    </form>
+        <div class="row" style="height:50%; ">
+            <a href="/du_log_parser_tool/du_kpi" class="btn btn-outline-success btn-lg fs-4 text-center" role="button" aria-disabled="true"> 
+                DU KPI Overview <p class="text-center fs-6"> DU KPI Log Tabular View
+                </p>
+             </a>
+        </div>
+    </div>
+    
+    <div class="col-sm-4 row-12" style="height:50%;">
+        <div class="row" style="height:50%;">
+            <a href="/du_log_parser_tool/l1_timing" class="btn btn-outline-success btn-lg fs-4 text-center" role="button" aria-disabled="true">
+                L1 Timing Parser <p class="text-center fs-6"> L1 Timing KPI Delay</p>
+            </a>
+        </div>
+        <div class="row" style="height:50%;">
+            <a href="/du_log_parser_tool/pm_counters" class="btn btn-outline-success btn-lg fs-4 text-center" role="button" aria-disabled="true"> 
+                PM Counters <p class="text-center fs-6">Tabular View of all PM Counters KPI </p>
+            </a>
+
+        </div>
+    </div>
+    <div class="col-sm-4 row-12" style="height:50%;">
+        <div class="row" style="height:50%;">
+            <a href="/du_log_parser_tool/process_monitor" class="btn btn-outline-success btn-lg fs-4 text-center" role="button" aria-disabled="true">
+                Process Monitor App Startup <p class="text-center fs-6"> Timing Delay between Apps startup. (CU, DU, L1, PTP, etc) </p>
+            </a>
+        </div>
+    </div>
+
 </div>
-{% if charts %}
-    {% for chart in charts %}
-    <img src="data:image/png;base64, {{chart|safe}}">
-    {% endfor %}
-{% endif%}
+
+</body>
 
 {% endblock %}
-

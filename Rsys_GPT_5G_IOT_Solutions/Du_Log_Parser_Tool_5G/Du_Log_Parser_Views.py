@@ -14,6 +14,8 @@ def du_log_homepage(request):
     return render(request,"Du_Log_Parser_Pages/du_log_homepage.html")
 
 
+
+
 def du_log_parsing(request):
     if request.method != "POST":
         messages.error(request, "Invalid Method")
@@ -87,4 +89,22 @@ def du_log_parsing(request):
         ]
     return render(request,'Du_Log_Parser_Pages/du_log_homepage.html', {'charts':charts})
             
-                
+def cu_du_counters(request):
+    # takes in cu and du stat file and outputs tabular column with  differences
+    return render(request, 'DU_Log_Parser_Pages/du_counters.html')
+
+def du_kpi(request):
+    # takes du stat file as input and outputs tabular excel for all tables
+    return render(request, 'DU_Log_Parser_Pages/du_kpi.html')
+
+def l1_timing(request):
+    # takes l1_log_tdd/fdd as input file and outputs l1 timing differences
+    return render(request, 'DU_Log_Parser_Pages/l1_timing.html')
+
+def pm_counters(request):
+    # takes pm files and output all kpi in tabular manner
+    return render(request, 'DU_Log_Parser_Pages/pm_counters.html')
+
+def process_monitor(request):
+    # takes process monitor files and outputs timing difference between all startup apps
+    return render(request, 'DU_Log_Parser_Pages/process_monitor.html')
