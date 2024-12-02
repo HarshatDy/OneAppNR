@@ -1,0 +1,11 @@
+version: "3.9"
+services:
+  web:
+    build:
+      context: ./Rsys_GPT_5G_IOT_Solutions
+      dockerfile: Dockerfile
+    image: oneapp-k8s:v1
+    environment:
+      - PORT: 8080
+    ports:
+      - "8001:8080"

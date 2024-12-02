@@ -1,0 +1,12 @@
+#General Files 
+*.pyc
+__pychache__/
+
+
+#env
+*.env
+
+#additional
+*.log
+*.tmp
+*.swp
