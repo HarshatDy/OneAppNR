@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-)_tpzby)oj_qwkp*!tmkwr%ji*c5(12v_ia#r7-&wrpl-76#!v
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["github.com/HarshatDy/RadisysOneToolNR","127.0.0.1"]
+ALLOWED_HOSTS = ["github.com/HarshatDy/RadisysOneToolNR","0.0.0.0","0.0.0.0"]
 
 
 # Application definition
