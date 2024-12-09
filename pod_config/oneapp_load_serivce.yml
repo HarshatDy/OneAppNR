@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: oneappnr-service-expose
+spec:
+  type: LoadBalancer
+  selector:
+    app: oneappnr-main  # Match your pod's label
+  ports:
+  - name: http
+    protocol: TCP
+    port: 80  # Port exposed by the service
+    targetPort: 8080  # Port inside the Pod
+    nodePort: 30000  # A port on each node (must be in the range defined by your cluster)

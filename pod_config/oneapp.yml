@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: oneappnr-pod
+  labels:
+    app: oneappnr-main
+spec:
+  imagePullSecrets:
+  - name : docker-registry-secret
+  containers:
+  - name: oneappnr-container
+    image: harshatdy/oneappnr:v1
+   # Add ports if your application needs them
+    # ports:
+    # - containerPort: 8080  # Replace with your application's port
+    # Add resource limits if needed
+    # resources:
+    #   limits:
+    #     cpu: 100m
+    #     memory: 128Mi
+    #   requests:
+    #     cpu: 50m
+    #     memory: 64Mi
